@@ -39,8 +39,8 @@ public class InferenceEngine {
         return success;
     }
 
-    public boolean backwardChainning (String goal, List<String> factBase) {
-        if(verify(goal, factBase))
+    public boolean backwardChainning (String goal, List<String> factBase, RETENetwork reteNetwork) {
+        if(verify(goal, factBase, reteNetwork))
             return true;
         else
             return false;
@@ -91,14 +91,34 @@ public class InferenceEngine {
         factBase.add(newFacts);
     }
 
-    public boolean verify (String goal, List<String> factBase) {
+    public boolean verify (String goal, List<String> factBase, RETENetwork reteNetwork) {
+        conflictSet = new ArrayList<>();
+        List<String> newGoals;
         boolean verified = false;
         if(factBase.contains(goal))
             return true;
         else {
-
+            // Conflict set = Equate(Consequent(KB), Goal)
+            for(Node n : reteNetwork.getBetaNodes()) {
+                if(n.getEquateRule().getConsequent().equals(goal)) {
+                    conflictSet.add(n.getEquateRule());
+                }
+            }
+            while(!conflictSet.isEmpty() && !verified) {
+                Rule r = resolve('f');
+                conflictSet.remove(r);
+                newGoals = r.getAntecedents();
+                verified = true;
+                while(!newGoals.isEmpty() && verified) {
+                    goal = newGoals.get(0);
+                    newGoals.remove(goal);
+                    verified = verify(goal,factBase, reteNetwork);
+                    if(verified)
+                        factBase.add(goal);
+                }
+            }
+            return verified;
         }
-        return verified;
     }
 
 }

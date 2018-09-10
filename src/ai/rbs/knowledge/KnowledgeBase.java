@@ -94,47 +94,47 @@ public class KnowledgeBase {
     }
 
     public boolean insertRule(Rule r) {
-       boolean inserted = false;
-       int logicAddress;
-       StringBuffer buffer;
-       try {
-           filesManager = new FilesManager("index");
-           r.setId((int) (filesManager.getFile().length() / FilesManager.INDEX_SIZE_REGISTER) + 1);
-           filesManager.getFile().close();
-           filesManager = new FilesManager("master");
-           logicAddress = (int) filesManager.getFile().length();
-           filesManager.getFile().seek(logicAddress);
-           filesManager.getFile().writeInt(r.getId());
-           buffer = new StringBuffer(r.getConsequent());
-           buffer.setLength(5);
-           filesManager.getFile().writeChars(buffer.toString());
+        boolean inserted = false;
+        int logicAddress;
+        StringBuffer buffer;
+        try {
+            filesManager = new FilesManager("index");
+            r.setId((int) (filesManager.getFile().length() / FilesManager.INDEX_SIZE_REGISTER) + 1);
+            filesManager.getFile().close();
+            filesManager = new FilesManager("master");
+            logicAddress = (int) filesManager.getFile().length();
+            filesManager.getFile().seek(logicAddress);
+            filesManager.getFile().writeInt(r.getId());
+            buffer = new StringBuffer(r.getConsequent());
+            buffer.setLength(5);
+            filesManager.getFile().writeChars(buffer.toString());
 
-           if(r.getAntecedents().size() >= 10) {
-               for (int i = 0; i < 10; i++) {
-                   buffer = new StringBuffer(r.getAntecedents().get(i));
-                   buffer.setLength(4);
-                   filesManager.getFile().writeChars(buffer.toString());
-               }
-           }else {
-               for (String s : r.getAntecedents()) {
-                   buffer = new StringBuffer(s);
-                   buffer.setLength(4);
-                   filesManager.getFile().writeChars(buffer.toString());
-               }
-               for(int i=0; i < (10 - r.getAntecedents().size()); i++) {
-                   filesManager.getFile().writeChars("null");
-               }
-           }
+            if(r.getAntecedents().size() >= 10) {
+                for (int i = 0; i < 10; i++) {
+                    buffer = new StringBuffer(r.getAntecedents().get(i));
+                    buffer.setLength(4);
+                    filesManager.getFile().writeChars(buffer.toString());
+                }
+            }else {
+                for (String s : r.getAntecedents()) {
+                    buffer = new StringBuffer(s);
+                    buffer.setLength(4);
+                    filesManager.getFile().writeChars(buffer.toString());
+                }
+                for(int i=0; i < (10 - r.getAntecedents().size()); i++) {
+                    filesManager.getFile().writeChars("null");
+                }
+            }
 
-           filesManager.getFile().close();
-           filesManager = new FilesManager("index");
-           filesManager.getFile().seek(filesManager.getFile().length());
-           filesManager.getFile().writeInt(r.getId());
-           filesManager.getFile().writeInt(logicAddress);
-           filesManager.getFile().close();
-           inserted = true;
-       } catch (Exception e) { e.printStackTrace(); }
-       return inserted;
+            filesManager.getFile().close();
+            filesManager = new FilesManager("index");
+            filesManager.getFile().seek(filesManager.getFile().length());
+            filesManager.getFile().writeInt(r.getId());
+            filesManager.getFile().writeInt(logicAddress);
+            filesManager.getFile().close();
+            inserted = true;
+        } catch (Exception e) { e.printStackTrace(); }
+        return inserted;
     }
 
     public boolean deleteRule(int id) {
