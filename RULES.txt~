@@ -1,0 +1,14 @@
+1 cALC e1 e2 e3 e4
+2 c_ALC cALC e5 e6
+3 cMAR0 e7 e8 e4 e5 e10
+4 c_MAR cMAR e9
+5 cHER0 e1 e2 e3
+6 c_HER cHER e11 e12 e13
+7 cSET0 e14 e15 e2 e3 e8
+8 c_SET cSET e16
+9 cLSD0 e14 e15 e8 e7 e17
+10 c_LSD cLSD e9
+11 cCOC0 e1 e14 e19 e20
+12 c_COC cCOC e18 e11
+13 cMET0 e1 e7 e12 e19
+14 C_MET cMET e18 e21

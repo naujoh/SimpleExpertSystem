@@ -1,12 +1,9 @@
 package ai.rbs;
 
-import ai.rbs.inference.InferenceEngine;
-import ai.rbs.inference.RETENetwork;
-import ai.rbs.knowledge.KnowledgeBase;
-
 public class Main {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         /*Preload p = new Preload("RULES.txt");
         p.createBinaryFile();*/
         /*KnowledgeBase b = new KnowledgeBase();
@@ -47,6 +44,12 @@ public class Main {
             }
             System.out.println(e);
         }
+=======
+        Preload p = new Preload("RULES.txt");
+        p.createBinaryFile();
+        UI ui = new UI();
+        ui.createUI();
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
 
         /*for(String s : factBase.getFacts()) {
             System.out.printf(s + " \t");
