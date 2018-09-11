@@ -1,5 +1,6 @@
 package ai.rbs.inference;
 
+import ai.rbs.JustificationModule;
 import ai.rbs.knowledge.KnowledgeBase;
 import ai.rbs.knowledge.Rule;
 
@@ -8,21 +9,30 @@ import java.util.List;
 
 public class InferenceEngine {
     private List<Rule> conflictSet;
+    private JustificationModule justificationModule;
     protected List<Integer> executedRules;
     protected String newFacts;
+    protected int i;
 
-    public boolean forwardChainning (List<String> factBase, KnowledgeBase kBase, RETENetwork reteNetwork, String goal) {
-        boolean success = false;
+    public boolean forwardChaining(List<String> factBase, KnowledgeBase kBase, RETENetwork reteNetwork, JustificationModule justificationModule) {
+        boolean success = false, goalInFactBase = false;
         newFacts = "none";
         conflictSet = new ArrayList<>();
-
+        i = 0;
         if(executedRules == null)
             executedRules = new ArrayList<>();
         else if (executedRules.size() > 0)
             executedRules.clear();
 
         conflictSet.add(kBase.getRandomRule());
-        while(!factBase.contains(goal) && !conflictSet.isEmpty()) {
+        for(String s : kBase.getTargetFact()) {
+            if(factBase.contains(s)) {
+                goalInFactBase = true;
+                break;
+            }
+        }
+        while(!goalInFactBase && !conflictSet.isEmpty()) {
+            i++;
             if(newFacts.equals("none"))
                 for (String fact : factBase) {
                     reteNetwork.propagate(fact);
@@ -31,10 +41,23 @@ public class InferenceEngine {
                 reteNetwork.propagate(newFacts);
             conflictSet = reteNetwork.getSuccessfulRules();
             if(!conflictSet.isEmpty()) {
-                update(resolve('f'), factBase);
+                update(resolve('f'), factBase, justificationModule);
+            }
+            for(String s : kBase.getTargetFact()) {
+                if(factBase.contains(s)) {
+                    goalInFactBase = true;
+                    break;
+                }
             }
         }
-        if (factBase.contains(goal))
+        goalInFactBase = false;
+        for(String s : kBase.getTargetFact()) {
+            if(factBase.contains(s)) {
+                goalInFactBase = true;
+                break;
+            }
+        }
+        if (goalInFactBase)
             success = true;
         return success;
     }
@@ -46,7 +69,7 @@ public class InferenceEngine {
             return false;
     }
 
-    public Rule resolve (char chainingType) {
+    private Rule resolve (char chainingType) {
         if(chainingType == 'f') {
             List<Rule> selectedRules = new ArrayList<>();
             Rule selectedRule = null;
@@ -62,8 +85,11 @@ public class InferenceEngine {
             for (Rule r : conflictSet) {
                 if (aux <= r.getAntecedents().size()) {
                     aux = r.getAntecedents().size();
-                    selectedRules.add(r);
                 }
+            }
+            for (Rule r : conflictSet) {
+                if(r.getAntecedents().size() == aux)
+                    selectedRules.add(r);
             }
             aux = 0;
             if (selectedRules.size() > 1) {
@@ -73,11 +99,13 @@ public class InferenceEngine {
                         selectedRule = r;
                     }
                 }
-                conflictSet.remove(selectedRule);
+                //conflictSet.remove(selectedRule);
                 return selectedRule;
             } else {
-                conflictSet.remove(selectedRules.get(0));
-                return selectedRules.get(0);
+                //conflictSet.remove(selectedRules.get(0));
+                if(!selectedRules.isEmpty())
+                    return selectedRules.get(0);
+                else return null;
             }
         } else {
             //Resolve for forwardChaining
@@ -85,13 +113,16 @@ public class InferenceEngine {
         }
     }
 
-    public void update (Rule r, List<String> factBase) {
-        executedRules.add(r.getId());
-        newFacts = r.getConsequent();
-        factBase.add(newFacts);
+    private void update (Rule r, List<String> factBase, JustificationModule justificationModule) {
+        if(r != null) {
+            executedRules.add(r.getId());
+            newFacts = r.getConsequent();
+            justificationModule.justify(i, factBase, conflictSet, r.getId());
+            factBase.add(newFacts);
+        }
     }
 
-    public boolean verify (String goal, List<String> factBase, RETENetwork reteNetwork) {
+    private boolean verify (String goal, List<String> factBase, RETENetwork reteNetwork) {
         conflictSet = new ArrayList<>();
         List<String> newGoals;
         boolean verified = false;

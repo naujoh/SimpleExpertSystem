@@ -59,7 +59,9 @@ public class RETENetwork {
                     if(!child.getMemory().contains(fact))
                         child.getMemory().add(fact);
                     if(child.getNumberOfParents() == child.getMemory().size()) {
-                        successfulRules.add(child.getEquateRule());
+                        if(!successfulRules.contains(child.getEquateRule()))
+                            successfulRules.add(child.getEquateRule());
+
                     }
                 }
             }
