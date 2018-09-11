@@ -12,6 +12,11 @@ public class Rule {
     public Rule() {
         antecedents = new ArrayList<>();
     }
+    public Rule(int id, String consequent, List<String> antecedents) {
+        this.id = id;
+        this.consequent = consequent;
+        this.antecedents = antecedents;
+    }
 
     public void addAntecedent(String antecedent) {
         antecedents.add(antecedent);

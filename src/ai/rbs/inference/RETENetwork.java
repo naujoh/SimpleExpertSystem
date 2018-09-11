@@ -8,12 +8,16 @@ import java.util.List;
 public class RETENetwork {
     private Node root;
     private List<Rule> successfulRules;
+    private List<Node> betaNodes;
 
     public RETENetwork() {
         successfulRules = new ArrayList<>();
+        betaNodes = new ArrayList<>();
     }
 
     public void create(List<Rule> rules) {
+        if(!betaNodes.isEmpty())
+            betaNodes.clear();
         root = new Node("root");
         Node classNode, alphaNode;
         for (Rule r : rules) {
@@ -38,6 +42,7 @@ public class RETENetwork {
                         betaNode.setNumberOfParents(betaNode.getNumberOfParents()+1);
                         betaNode.getChilds().add(alphaNode); //Child of a betaNode references to his parents
                         alphaNode.getChilds().add(betaNode);
+                        betaNodes.add(betaNode);
                     }
                 }
             }
@@ -64,5 +69,10 @@ public class RETENetwork {
     public List<Rule> getSuccessfulRules() {
         return this.successfulRules;
     }
+
+    public List<Node> getBetaNodes() {
+        return betaNodes;
+    }
+
 }
 
