@@ -536,7 +536,7 @@ public class UI extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    //Guardamos en un entero la fila seleccionada.
+                    //Guardamos en n entero la fila seleccionada.
                     String [] hecho = jTextField3.getText().split(",");
 
                     List<String> hechos = new ArrayList<>();

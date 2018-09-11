@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1526ecaa-3549-4b2b-85db-4beaefd42aed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/index" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/master" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleExpertSystem/ai/rbs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleExpertSystem/ai/rbs/Main.class" afterDir="false" />
@@ -14,9 +15,18 @@
       <change beforePath="$PROJECT_DIR$/src/ai/rbs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/rbs/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/ai/rbs/FactBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/FactBase.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/ai/rbs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ai/rbs/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/rbs/UI.java" afterDir="false" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,19 +72,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file leaf-file-name="KnowledgeBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="105" column="94" selection-start-line="105" selection-start-column="94" selection-end-line="105" selection-end-column="94" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#10140#10141#0" expanded="true" />
+                <element signature="e#10173#10174#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactBase.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/FactBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#148#149#0" expanded="true" />
+                <element signature="e#195#196#0" expanded="true" />
+                <element signature="e#233#234#0" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RETENetwork.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/RETENetwork.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
               <caret line="139" column="54" lean-forward="true" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
               <folding>
+<<<<<<< HEAD
                 <element signature="e#10197#10198#0" expanded="true" />
                 <element signature="e#10230#10231#0" expanded="true" />
+=======
+                <element signature="imports" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#603#633#0" expanded="true" />
+                <element signature="e#2582#2583#0" expanded="true" />
+                <element signature="e#2645#2646#0" expanded="true" />
+                <element signature="e#18078#18165#0" expanded="true" />
+                <element signature="e#19548#19549#0" expanded="true" />
+                <element signature="e#19611#19612#0" expanded="true" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,13 +166,48 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="InferenceEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/InferenceEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#resolve#0;class#InferenceEngine#0" />
+                <element signature="method#verify#0;class#InferenceEngine#0" />
+              </folding>
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="JustificationModule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/JustificationModule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#212#213#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
+                <element signature="e#1116#1117#0" expanded="true" />
+                <element signature="e#1152#1153#0" expanded="true" />
+              </folding>
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RULES.txt">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="210">
               <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
@@ -116,13 +228,31 @@
                 <element signature="e#29847#29848#0" expanded="true" />
                 <element signature="e#29904#29905#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="165">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Rule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#237#238#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+              </folding>
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ai/rbs/FactBase.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="225">
               <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
@@ -131,6 +261,11 @@
                 <element signature="e#233#234#0" expanded="true" />
                 <element signature="e#261#262#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="75">
+              <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
             </state>
           </provider>
         </entry>
@@ -146,11 +281,15 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>insert</find>
+=======
       <find>Interfaz</find>
       <find>main</find>
       <find>createUI</find>
       <find>getRule</find>
       <find>jTable1</find>
+<<<<<<< HEAD
       <find>jBu</find>
       <find>jButton</find>
       <find>modelo</find>
@@ -163,6 +302,9 @@
       <find>recupe</find>
       <find>ruleid</find>
       <find>Definir</find>
+=======
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,18 +315,31 @@
       <list>
         <option value="$PROJECT_DIR$/src/ai/rbs/inference/UI.form" />
         <option value="$PROJECT_DIR$/src/ai/rbs/GUI.form" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/ai/rbs/inference/RETENetwork.java" />
+        <option value="$PROJECT_DIR$/src/ai/rbs/inference/InferenceEngine.java" />
+        <option value="$PROJECT_DIR$/src/ai/rbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/ai/rbs/JustificationModule.java" />
+        <option value="$PROJECT_DIR$/src/ai/rbs/FactBase.java" />
+=======
         <option value="$PROJECT_DIR$/src/ai/rbs/Interfaz.java" />
         <option value="$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java" />
         <option value="$PROJECT_DIR$/src/ai/rbs/Main.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/ai/rbs/UI.java" />
+=======
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="72" />
-    <option name="y" value="336" />
-    <option name="width" value="1320" />
-    <option name="height" value="550" />
+    <option name="y" value="30" />
+    <option name="width" value="1366" />
+    <option name="height" value="738" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -212,10 +367,36 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="rbs" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="SimpleExpertSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleExpertSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rbs" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="inference" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleExpertSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleExpertSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rbs" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+              <item name="knowledge" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,10 +423,12 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
+<<<<<<< HEAD
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+=======
     <configuration name="UI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ai.rbs.UI" />
       <module name="SimpleExpertSystem" />
@@ -267,6 +450,7 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.UI" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
       </list>
     </recent_temporary>
   </component>
@@ -284,13 +468,55 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="-1" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="0" y="30" width="1366" height="738" extended-state="6" />
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
     <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3289689" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3453355" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.83797055" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+<<<<<<< HEAD
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48772505" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13180363" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Run" order="5" />
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
+<<<<<<< HEAD
       <window_info id="Learn" order="3" weight="0.32977587" />
+=======
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info id="Learn" order="3" />
+=======
+      <window_info id="Learn" order="3" />
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
       <window_info id="Capture Tool" order="4" />
       <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13660619" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
@@ -308,12 +534,16 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3297414" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
       <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info id="Favorites" order="7" side_tool="true" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -321,6 +551,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ai/rbs/UI.java</url>
@@ -329,9 +560,24 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
+=======
+      <option name="time" value="6" />
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3344">
+          <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/UI.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/FactBase.java" />
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/FilesManager.java">
@@ -351,23 +597,118 @@
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/Interfaz.form" />
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/GUI.form" />
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/Interfaz.java" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/JustificationModule.java">
+=======
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/FactBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Preload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="224">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Preload.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="144">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+=======
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/InferenceEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/List.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/JustificationModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RULES.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Interfaz.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Preload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/FilesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#884#885#0" expanded="true" />
+          </folding>
+=======
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -377,22 +718,207 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RULES.txt">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="210">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
+=======
+        <state relative-caret-position="165">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/UI.java">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="139" column="54" lean-forward="true" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
+        <state relative-caret-position="496">
+          <caret line="291" column="39" lean-forward="true" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="231" column="47" lean-forward="true" selection-start-line="231" selection-start-column="47" selection-end-line="231" selection-end-column="47" />
           <folding>
-            <element signature="e#10197#10198#0" expanded="true" />
-            <element signature="e#10230#10231#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10140#10141#0" expanded="true" />
+            <element signature="e#10173#10174#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/UI.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/FactBase.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/FilesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/ui.form" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/ui.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/UI.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/UI.form" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/JustificationModule.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/rbs/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/GUI.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Interfaz.java" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Interfaz.form" />
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/GUI.form" />
+    <entry file="file://$PROJECT_DIR$/index">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="853" selection-start-line="853" selection-end-line="853" />
+          <folding>
+            <element signature="e#31427#31428#0" expanded="true" />
+=======
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="139" column="54" lean-forward="true" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
+          <folding>
+<<<<<<< HEAD
+            <element signature="e#10197#10198#0" expanded="true" />
+            <element signature="e#10230#10231#0" expanded="true" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#603#633#0" expanded="true" />
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#18078#18165#0" expanded="true" />
+            <element signature="e#19548#19549#0" expanded="true" />
+            <element signature="e#19611#19612#0" expanded="true" />
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/RULES_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="e#336#337#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#589#619#0" expanded="true" />
+            <element signature="e#624#713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/RETENetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#237#238#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/knowledge/KnowledgeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="105" column="94" selection-start-line="105" selection-start-column="94" selection-end-line="105" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10140#10141#0" expanded="true" />
+            <element signature="e#10173#10174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/inference/InferenceEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#resolve#0;class#InferenceEngine#0" />
+            <element signature="method#verify#0;class#InferenceEngine#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/JustificationModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/rbs/FactBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#148#149#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+>>>>>>> 99c5d8ee44c7d373742c5b93d3e710d05604f035
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/src/ai/rbs/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -429,5 +955,6 @@
         </state>
       </provider>
     </entry>
+>>>>>>> eae218d65d85465c6fee11842623463398b068b1
   </component>
 </project>

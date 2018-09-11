@@ -13,4 +13,8 @@ public class FactBase {
     public List<String> getFacts() {
         return facts;
     }
+
+    public void setFacts(List<String> facts) {
+        this.facts = facts;
+    }
 }
