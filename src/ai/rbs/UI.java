@@ -5,11 +5,18 @@
  */
 package ai.rbs;
 
+import ai.rbs.inference.InferenceEngine;
+import ai.rbs.inference.RETENetwork;
 import ai.rbs.knowledge.KnowledgeBase;
 import ai.rbs.knowledge.Rule;
+import sun.misc.FDBigInteger;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +24,9 @@ import java.util.List;
  * @author Miguel
  */
 public class UI extends javax.swing.JFrame {
+    int banderaEliminar =0;
+    String [] ruleid;
+    int ruleidTable3;
 
     /**
      * Creates new form UI
@@ -61,6 +71,8 @@ public class UI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
 
+
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -90,11 +102,7 @@ public class UI extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null},
-                        {null},
-                        {null},
-                        {null}
-                },
+                   },
                 new String [] {
                         "Rules"
                 }
@@ -105,25 +113,26 @@ public class UI extends javax.swing.JFrame {
         DefaultTableModel modelo= (DefaultTableModel) jTable1.getModel();
 
 
-//        jTable1.setModel(modelo);
-
-
-
         for (Rule r : kb.getRules()) {
             String Antecedentes="";
 
+            int tamaño=r.getAntecedents().size();
+            int cont=0;
             for ( String l: r.getAntecedents() ) {
-                Antecedentes=Antecedentes+l+",";
+                cont++;
+                if (cont==tamaño)
+                {
+                    Antecedentes=Antecedentes+l;
+
+                }else
+                    Antecedentes=Antecedentes+l+",";
             }
 
             String regla=Antecedentes+"-"+r.getConsequent();
            // String [] rule = regla;
-            modelo.addRow(new Object[]{"ewdsf"});
+            modelo.addRow(new Object[]{r.getId()+" "+regla});
 
         }
-
-
-
 
 
 
@@ -204,10 +213,6 @@ public class UI extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null}
                 },
                 new String [] {
                         "Ciclo", "Base de Hechos", "Conjunto Conflicto", "Resoluciòn", "Meta Actual"
@@ -246,6 +251,9 @@ public class UI extends javax.swing.JFrame {
                                                                                 .addComponent(jButton6)))))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+
+
         jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
@@ -277,11 +285,7 @@ public class UI extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null},
-                        {null},
-                        {null},
-                        {null}
-                },
+                   },
                 new String [] {
                         "Reglas"
                 }
@@ -332,15 +336,344 @@ public class UI extends javax.swing.JFrame {
         );
 
         pack();
+
+
+
+        DefaultTableModel modelo3= (DefaultTableModel) jTable3.getModel();
+
+
+        for (Rule r : kb.getDeletedRules()) {
+            String Antecedentes="";
+
+            int tamaño=r.getAntecedents().size();
+            int cont=0;
+            for ( String l: r.getAntecedents() ) {
+                cont++;
+                if (cont==tamaño)
+                {
+                    Antecedentes=Antecedentes+l;
+
+                }else
+                    Antecedentes=Antecedentes+l+",";
+            }
+
+            String regla=Antecedentes+"-"+r.getConsequent();
+            // String [] rule = regla;
+            modelo3.addRow(new Object[]{r.getId()+" "+regla});
+
+        }
+
+
+
+
+
+
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = jTable1.rowAtPoint(evt.getPoint());
+                int col = jTable1.columnAtPoint(evt.getPoint());
+
+                if (row == -1){
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+                } else {
+                                      String [] rule =modelo.getValueAt(row,0).toString().split("-");
+
+                    jTextField1.setText(rule[0]);
+                    jTextField2.setText(rule[1]);
+                    ruleid=rule[0].split(" ");
+                    JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+
+                }
+
+
+            }
+        });
+
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = jTable3.rowAtPoint(evt.getPoint());
+                int col = jTable3.columnAtPoint(evt.getPoint());
+
+                if (row == -1){
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+                } else {
+                    String [] rule =modelo3.getValueAt(row,0).toString().split(" ");
+
+                    ruleidTable3=Integer.parseInt(rule[0]);
+
+                            JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleidTable3);
+
+                }
+
+
+            }
+        });
+        jButton1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                int filaseleccionada;
+                try{
+                    //Guardamos en un entero la fila seleccionada.
+                    filaseleccionada = jTable1.getSelectedRow();
+                    if (filaseleccionada == -1){
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+                    } else {
+
+                        kb.modifyRuleStatus(Integer.parseInt(ruleid[0]));
+                        llenadoReglas();
+//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+
+                    }
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+
+
+            }
+        });
+
+
+
+        jButton2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                int filaseleccionada;
+                try{
+                    //Guardamos en un entero la fila seleccionada.
+                    filaseleccionada = jTable1.getSelectedRow();
+                    if (filaseleccionada == -1){
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+                    } else {
+
+                        String [] antecedente = jTextField1.getText().split(" ");
+                        String [] auxAntecedentes=antecedente[1].split(",");
+
+                        List<String> antecedents = new ArrayList<>();
+                        for (String s: auxAntecedentes) {
+                            antecedents.add(s);
+                        }
+                        JOptionPane.showMessageDialog(null," "+ruleid[0]+" "+jTextField2.getText()+" "+antecedents);
+
+                        kb.modifyRule(new Rule(Integer.parseInt(ruleid[0]),jTextField2.getText(),antecedents));
+
+                        antecedents.clear();
+                        llenadoReglas();
+//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+
+                    }
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+
+
+            }
+        });
+
+
+
+        jButton3.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int filaseleccionada;
+                try{
+                    //Guardamos en un entero la fila seleccionada.
+                    filaseleccionada = jTable1.getSelectedRow();
+
+                        String [] antecedente = jTextField1.getText().split(",");
+
+                        List<String> antecedents = new ArrayList<>();
+                        for (String s: antecedente) {
+                            antecedents.add(s);
+                        }
+                        JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+antecedents);
+
+                        kb.insertRule(new Rule(0,jTextField2.getText(),antecedents));
+
+                        antecedents.clear();
+                        llenadoReglas();
+//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+
+
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        FactBase FB = new FactBase();
+
+        jButton4.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    //Guardamos en un entero la fila seleccionada.
+                    String [] hecho = jTextField3.getText().split(",");
+
+
+                    List<String> hechos = new ArrayList<>();
+                    for (String s: hecho) {
+                        hechos.add(s);
+                    }
+                    JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
+                    FB.setFacts(hechos);
+                    hechos.clear();
+
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        jButton5.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+
+                    InferenceEngine IE = new InferenceEngine();
+                    RETENetwork RN = new RETENetwork();
+
+                    RN.create(kb.getRules());
+                    JustificationModule JM = new JustificationModule();
+                    if( IE.forwardChaining(FB.getFacts(),kb,RN,JM))
+                    {
+
+
+
+                        DefaultTableModel modelo2= (DefaultTableModel) jTable2.getModel();
+
+                        JOptionPane.showMessageDialog(null,"el sujeto esta consumiendo "+FB.getFacts().get(FB.getFacts().size()-1));
+
+                        for (String [] s: JM.getJustification()
+                             ) {
+                            modelo2.addRow(s);
+                        }
+
+
+                    }else{
+
+                    }
+
+
+
+
+
+                    //Guardamos en n entero la fila seleccionada.
+                    String [] hecho = jTextField3.getText().split(",");
+
+                    List<String> hechos = new ArrayList<>();
+                    for (String s: hecho) {
+                        hechos.add(s);
+                    }
+                    JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
+                 //   kb.insertRule(hechos);
+                    hechos.clear();
+
+
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+
+        jButton7.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int filaseleccionada;
+                try{
+                    //Guardamos en un entero la fila seleccionada.
+                    filaseleccionada = jTable3.getSelectedRow();
+                    if (filaseleccionada == -1){
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+                    } else {
+
+                        kb.modifyRuleStatus(ruleidTable3);
+                        llenadoReglas();
+//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+                    }
+                }catch (HeadlessException ex){
+                    JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+
     }// </editor-fold>//GEN-END:initComponents
+
+
+    public void llenadoReglas()
+    {
+        KnowledgeBase kb  = new KnowledgeBase();
+
+        DefaultTableModel modelo= (DefaultTableModel) jTable1.getModel();
+
+
+        for (Rule r : kb.getRules()) {
+            String Antecedentes="";
+
+            int tamaño=r.getAntecedents().size();
+            int cont=0;
+            for ( String l: r.getAntecedents() ) {
+                cont++;
+                if (cont==tamaño)
+                {
+                    Antecedentes=Antecedentes+l;
+
+                }else
+                    Antecedentes=Antecedentes+l+",";
+            }
+
+            String regla=Antecedentes+"-"+r.getConsequent();
+            // String [] rule = regla;
+            modelo.addRow(new Object[]{r.getId()+" "+regla});
+        }
+
+
+        DefaultTableModel modelo3= (DefaultTableModel) jTable3.getModel();
+
+
+        for (Rule r : kb.getRules()) {
+            String Antecedentes="";
+
+            int tamaño=r.getAntecedents().size();
+            int cont=0;
+            for ( String l: r.getAntecedents() ) {
+                cont++;
+                if (cont==tamaño)
+                {
+                    Antecedentes=Antecedentes+l;
+
+                }else
+                    Antecedentes=Antecedentes+l+",";
+            }
+
+            String regla=Antecedentes+"-"+r.getConsequent();
+            // String [] rule = regla;
+            modelo3.addRow(new Object[]{r.getId()+" "+regla});
+        }
+
+
+
+
+    }
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     public  void createUI() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
