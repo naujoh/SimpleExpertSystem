@@ -5,8 +5,11 @@
  */
 package ai.rbs;
 
+import ai.rbs.inference.InferenceEngine;
+import ai.rbs.inference.RETENetwork;
 import ai.rbs.knowledge.KnowledgeBase;
 import ai.rbs.knowledge.Rule;
+import sun.misc.FDBigInteger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -507,6 +510,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        FactBase FB = new FactBase();
 
         jButton4.addActionListener(new ActionListener() {
 
@@ -516,14 +520,14 @@ public class UI extends javax.swing.JFrame {
                     //Guardamos en un entero la fila seleccionada.
                     String [] hecho = jTextField3.getText().split(",");
 
+
                     List<String> hechos = new ArrayList<>();
                     for (String s: hecho) {
                         hechos.add(s);
                     }
                     JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
-                    kb.insertRule(hechos);
+                    FB.setFacts(hechos);
                     hechos.clear();
-
 
                 }catch (HeadlessException ex){
                     JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
@@ -536,6 +540,35 @@ public class UI extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
+
+                    InferenceEngine IE = new InferenceEngine();
+                    RETENetwork RN = new RETENetwork();
+
+                    RN.create(kb.getRules());
+                    JustificationModule JM = new JustificationModule();
+                    if( IE.forwardChaining(FB.getFacts(),kb,RN,JM))
+                    {
+
+
+
+                        DefaultTableModel modelo2= (DefaultTableModel) jTable2.getModel();
+
+                        JOptionPane.showMessageDialog(null,"el sujeto esta consumiendo "+FB.getFacts().get(FB.getFacts().size()-1));
+
+                        for (String [] s: JM.getJustification()
+                             ) {
+                            modelo2.addRow(s);
+                        }
+
+
+                    }else{
+
+                    }
+
+
+
+
+
                     //Guardamos en n entero la fila seleccionada.
                     String [] hecho = jTextField3.getText().split(",");
 
@@ -544,7 +577,7 @@ public class UI extends javax.swing.JFrame {
                         hechos.add(s);
                     }
                     JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
-                    kb.insertRule(hechos);
+                 //   kb.insertRule(hechos);
                     hechos.clear();
 
 
@@ -641,10 +674,6 @@ public class UI extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     public  void createUI() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
