@@ -8,16 +8,17 @@ import java.util.Random;
 
 public class KnowledgeBase {
     private FilesManager filesManager;
+    private List<String> targetFact;
 
     public Rule getRandomRule() {
         Rule r = new Rule();
         Random random = new Random();
-        int nRegisters, logicAddress, randomId;
+        int nRegisters, logicAddress, randomId, filePointer;
         String antecedent;
         try {
             filesManager = new FilesManager("index");
             nRegisters = (int) filesManager.getFile().length() / FilesManager.INDEX_SIZE_REGISTER;
-            filesManager.getFile().seek((random.nextInt(nRegisters) + 1)*FilesManager.INDEX_SIZE_REGISTER);
+            filesManager.getFile().seek((random.nextInt(nRegisters))*FilesManager.INDEX_SIZE_REGISTER);
             randomId = filesManager.getFile().readInt();
             while (randomId < 1) {
                 filesManager.getFile().seek((random.nextInt(nRegisters) + 1)*FilesManager.INDEX_SIZE_REGISTER);
@@ -29,7 +30,8 @@ public class KnowledgeBase {
             filesManager.getFile().seek(logicAddress);
             r.setId(filesManager.getFile().readInt());
             r.setConsequent(filesManager.readString(5).trim());
-            while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filesManager.getFile().getFilePointer()) {
+            filePointer = (int) filesManager.getFile().getFilePointer();
+            while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filePointer) {
                 antecedent = filesManager.readString(4).trim();
                 if(!antecedent.equals("null"))
                     r.addAntecedent(antecedent);
@@ -42,7 +44,7 @@ public class KnowledgeBase {
     public List<Rule> getRules() {
         List<Rule> rules = new ArrayList<>();
         Rule r;
-        int ruleId;
+        int ruleId, filePointer;
         String antecedent;
         try {
             filesManager = new FilesManager("master");
@@ -53,7 +55,8 @@ public class KnowledgeBase {
                     r = new Rule();
                     r.setId(ruleId);
                     r.setConsequent(filesManager.readString(5).trim());
-                    while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filesManager.getFile().getFilePointer()) {
+                    filePointer = (int) filesManager.getFile().getFilePointer();
+                    while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filePointer) {
                         antecedent = filesManager.readString(4).trim();
                         if(!antecedent.equals("null"))
                             r.addAntecedent(antecedent);
@@ -68,7 +71,7 @@ public class KnowledgeBase {
 
     public List<Rule> getDeletedRules() {
         List<Rule> rules = new ArrayList<>();
-        int ruleId;
+        int ruleId, filePointer;
         String antecedent;
         Rule r;
         try {
@@ -80,7 +83,8 @@ public class KnowledgeBase {
                     r = new Rule();
                     r.setId(ruleId);
                     r.setConsequent(filesManager.readString(5).trim());
-                    while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filesManager.getFile().getFilePointer()) {
+                    filePointer = (int) filesManager.getFile().getFilePointer();
+                    while (filesManager.getFile().getFilePointer() < 10 * (4 * Character.BYTES) + filePointer) {
                         antecedent = filesManager.readString(4).trim();
                         if(!antecedent.equals("null"))
                             r.addAntecedent(antecedent);
@@ -137,7 +141,7 @@ public class KnowledgeBase {
         return inserted;
     }
 
-    public boolean deleteRule(int id) {
+    public boolean modifyRuleStatus(int id) {
         boolean deleted = false;
         int logicAddress = -1;
         try {
@@ -207,5 +211,29 @@ public class KnowledgeBase {
             }
         } catch (Exception e) { e.printStackTrace(); }
         return modified;
+    }
+
+    public void setGoalsFacts() {
+        targetFact = new ArrayList<>();
+        String consequent;
+        boolean isGoal;
+        List<Rule> rules = getRules();
+        for(Rule r : rules) {
+            isGoal = true;
+            consequent = r.getConsequent();
+            for(Rule d : rules) {
+                if(d.getAntecedents().contains(consequent)) {
+                    isGoal = false;
+                    break;
+                }
+            }
+            if(isGoal)
+                if(!targetFact.contains(consequent))
+                    targetFact.add(consequent);
+        }
+    }
+
+    public List<String> getTargetFact() {
+        return targetFact;
     }
 }

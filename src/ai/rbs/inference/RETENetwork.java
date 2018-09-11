@@ -28,7 +28,7 @@ public class RETENetwork {
                     root.getChilds().add(classNode);
                 }
                 for(Node cNode : root.getChilds()) {
-                    if(cNode.getName().equals(antecedent.charAt(0))) {
+                    if(cNode.getName().equals(String.valueOf(antecedent.charAt(0)))) {
                         if(!cNode.containChild(antecedent)) {
                             alphaNode = new Node(antecedent);
                             cNode.getChilds().add(alphaNode);
@@ -42,10 +42,10 @@ public class RETENetwork {
                         betaNode.setNumberOfParents(betaNode.getNumberOfParents()+1);
                         betaNode.getChilds().add(alphaNode); //Child of a betaNode references to his parents
                         alphaNode.getChilds().add(betaNode);
-                        betaNodes.add(betaNode);
                     }
                 }
             }
+            betaNodes.add(betaNode);
         }
     }
 
