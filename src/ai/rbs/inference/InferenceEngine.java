@@ -33,6 +33,7 @@ public class InferenceEngine {
         }
         while(!goalInFactBase && !conflictSet.isEmpty()) {
             i++;
+            System.out.println("ciclo: "+i);
             if(newFacts.equals("none"))
                 for (String fact : factBase) {
                     reteNetwork.propagate(fact);
@@ -91,22 +92,29 @@ public class InferenceEngine {
                 if(r.getAntecedents().size() == aux)
                     selectedRules.add(r);
             }
-            aux = 0;
-            if (selectedRules.size() > 1) {
-                for (Rule r : selectedRules) {
-                    if (aux < r.getId()) {
-                        aux = r.getId();
-                        selectedRule = r;
+            if(!selectedRules.isEmpty()) {
+                aux = selectedRules.get(0).getId();
+                if (selectedRules.size() > 1) {
+                    for (Rule r : selectedRules) {
+                        if (aux > r.getId()) {
+                            aux = r.getId();
+                            //selectedRule = r;
+                        }
                     }
+                    for(Rule r : selectedRules) {
+                        if(r.getId() == aux)
+                            selectedRule = r;
+                    }
+                    //conflictSet.remove(selectedRule);
+                    return selectedRule;
+                } else {
+                    //conflictSet.remove(selectedRules.get(0));
+                    if(!selectedRules.isEmpty())
+                        return selectedRules.get(0);
+                    else return null;
                 }
-                //conflictSet.remove(selectedRule);
-                return selectedRule;
-            } else {
-                //conflictSet.remove(selectedRules.get(0));
-                if(!selectedRules.isEmpty())
-                    return selectedRules.get(0);
-                else return null;
-            }
+            } else return null;
+
         } else {
             //Resolve for forwardChaining
             return null;

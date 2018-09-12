@@ -340,8 +340,7 @@ public class UI extends javax.swing.JFrame {
 
 
         DefaultTableModel modelo3= (DefaultTableModel) jTable3.getModel();
-
-
+        modelo3.setRowCount(0);
         for (Rule r : kb.getDeletedRules()) {
             String Antecedentes="";
 
@@ -382,7 +381,7 @@ public class UI extends javax.swing.JFrame {
                     jTextField1.setText(rule[0]);
                     jTextField2.setText(rule[1]);
                     ruleid=rule[0].split(" ");
-                    JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+                    //JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
 
                 }
 
@@ -402,8 +401,7 @@ public class UI extends javax.swing.JFrame {
                     String [] rule =modelo3.getValueAt(row,0).toString().split(" ");
 
                     ruleidTable3=Integer.parseInt(rule[0]);
-
-                            JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleidTable3);
+                    //JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleidTable3);
 
                 }
 
@@ -414,8 +412,6 @@ public class UI extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
                 int filaseleccionada;
                 try{
                     //Guardamos en un entero la fila seleccionada.
@@ -425,6 +421,8 @@ public class UI extends javax.swing.JFrame {
                     } else {
 
                         kb.modifyRuleStatus(Integer.parseInt(ruleid[0]));
+                        jTextField1.setText("");
+                        jTextField2.setText("");
                         llenadoReglas();
 //                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
 
@@ -460,20 +458,19 @@ public class UI extends javax.swing.JFrame {
                         for (String s: auxAntecedentes) {
                             antecedents.add(s);
                         }
-                        JOptionPane.showMessageDialog(null," "+ruleid[0]+" "+jTextField2.getText()+" "+antecedents);
 
                         kb.modifyRule(new Rule(Integer.parseInt(ruleid[0]),jTextField2.getText(),antecedents));
-
+                        JOptionPane.showMessageDialog(null,"Se actualizo la regla "+ ruleid[0]);
+                        jTextField1.setText("");
+                        jTextField2.setText("");
                         antecedents.clear();
                         llenadoReglas();
-//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
+//                      JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
 
                     }
                 }catch (HeadlessException ex){
                     JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
                 }
-
-
             }
         });
 
@@ -495,14 +492,15 @@ public class UI extends javax.swing.JFrame {
                         for (String s: antecedente) {
                             antecedents.add(s);
                         }
-                        JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+antecedents);
+                        //JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+antecedents);
 
                         kb.insertRule(new Rule(0,jTextField2.getText(),antecedents));
 
                         antecedents.clear();
                         llenadoReglas();
-//                        JOptionPane.showMessageDialog(null, " ha seleccionado la regla del id "+ruleid[0]);
-
+                        JOptionPane.showMessageDialog(null, "Regla insertada");
+                        jTextField1.setText("");
+                        jTextField2.setText("");
 
                 }catch (HeadlessException ex){
                     JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
@@ -525,9 +523,11 @@ public class UI extends javax.swing.JFrame {
                     for (String s: hecho) {
                         hechos.add(s);
                     }
-                    JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
+                    //JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
+                    JOptionPane.showMessageDialog(null,"Hechos definidos");
+                    jTextField3.setText("");
                     FB.setFacts(hechos);
-                    hechos.clear();
+                    //hechos.clear();
 
                 }catch (HeadlessException ex){
                     JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
@@ -540,47 +540,24 @@ public class UI extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-
+                    DefaultTableModel modelo2= (DefaultTableModel) jTable2.getModel();
+                    modelo2.setRowCount(0);
                     InferenceEngine IE = new InferenceEngine();
                     RETENetwork RN = new RETENetwork();
-
+                    kb.setGoalsFacts();
                     RN.create(kb.getRules());
                     JustificationModule JM = new JustificationModule();
+
                     if( IE.forwardChaining(FB.getFacts(),kb,RN,JM))
                     {
-
-
-
-                        DefaultTableModel modelo2= (DefaultTableModel) jTable2.getModel();
-
                         JOptionPane.showMessageDialog(null,"el sujeto esta consumiendo "+FB.getFacts().get(FB.getFacts().size()-1));
-
                         for (String [] s: JM.getJustification()
                              ) {
-                            modelo2.addRow(s);
+                            modelo2.addRow(new Object[]{s[0],s[1],s[2],s[3],s[4]});
                         }
-
-
                     }else{
-
+                        JOptionPane.showMessageDialog(null,"No hay suficientes datos para completar el encadenamiento");
                     }
-
-
-
-
-
-                    //Guardamos en n entero la fila seleccionada.
-                    String [] hecho = jTextField3.getText().split(",");
-
-                    List<String> hechos = new ArrayList<>();
-                    for (String s: hecho) {
-                        hechos.add(s);
-                    }
-                    JOptionPane.showMessageDialog(null," "+0+" "+jTextField2.getText()+" "+hechos);
-                 //   kb.insertRule(hechos);
-                    hechos.clear();
-
-
                 }catch (HeadlessException ex){
                     JOptionPane.showMessageDialog(null, "Error: "+ex+"\nInténtelo nuevamente", " .::Error En la Operacion::." ,JOptionPane.ERROR_MESSAGE);
                 }
@@ -620,8 +597,7 @@ public class UI extends javax.swing.JFrame {
         KnowledgeBase kb  = new KnowledgeBase();
 
         DefaultTableModel modelo= (DefaultTableModel) jTable1.getModel();
-
-
+        modelo.setRowCount(0);
         for (Rule r : kb.getRules()) {
             String Antecedentes="";
 
@@ -644,9 +620,9 @@ public class UI extends javax.swing.JFrame {
 
 
         DefaultTableModel modelo3= (DefaultTableModel) jTable3.getModel();
+        modelo3.setRowCount(0);
 
-
-        for (Rule r : kb.getRules()) {
+        for (Rule r : kb.getDeletedRules()) {
             String Antecedentes="";
 
             int tamaño=r.getAntecedents().size();
@@ -665,10 +641,6 @@ public class UI extends javax.swing.JFrame {
             // String [] rule = regla;
             modelo3.addRow(new Object[]{r.getId()+" "+regla});
         }
-
-
-
-
     }
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
