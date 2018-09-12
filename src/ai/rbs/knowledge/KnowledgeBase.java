@@ -22,6 +22,7 @@ public class KnowledgeBase {
             randomId = filesManager.getFile().readInt();
             while (randomId < 1) {
                 filesManager.getFile().seek((random.nextInt(nRegisters) + 1)*FilesManager.INDEX_SIZE_REGISTER);
+                filesManager.getFile().seek(filesManager.getFile().getFilePointer()-FilesManager.INDEX_SIZE_REGISTER);
                 randomId = filesManager.getFile().readInt();
             }
             logicAddress = filesManager.getFile().readInt();

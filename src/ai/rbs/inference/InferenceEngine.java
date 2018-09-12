@@ -4,6 +4,7 @@ import ai.rbs.JustificationModule;
 import ai.rbs.knowledge.KnowledgeBase;
 import ai.rbs.knowledge.Rule;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class InferenceEngine {
         boolean success = false, goalInFactBase = false;
         newFacts = "none";
         conflictSet = new ArrayList<>();
+
         i = 0;
         if(executedRules == null)
             executedRules = new ArrayList<>();
@@ -31,25 +33,97 @@ public class InferenceEngine {
                 break;
             }
         }
+        ArrayList<String> possibleFacts = new ArrayList<>();
+
         while(!goalInFactBase && !conflictSet.isEmpty()) {
+            reteNetwork.getSuccessfulRules().clear();
             i++;
             System.out.println("ciclo: "+i);
-            if(newFacts.equals("none"))
-                for (String fact : factBase) {
-                    reteNetwork.propagate(fact);
+
+            if (possibleFacts.isEmpty())
+            {
+                if(newFacts .equals("none"))
+                    for (String fact : factBase) {
+                        reteNetwork.propagate(fact);
+                    }
+                else
+                    reteNetwork.propagate(newFacts);
+            }else {
+                for (String s:possibleFacts
+                     ) {
+                    reteNetwork.propagate(s);
                 }
-            else
-                reteNetwork.propagate(newFacts);
+                possibleFacts.clear();
+            }
+
+
             conflictSet = reteNetwork.getSuccessfulRules();
             if(!conflictSet.isEmpty()) {
                 update(resolve('f'), factBase, justificationModule);
-            }
+            }else
+            {
+
+
+                boolean flag=false;
+
+                for(Node betanode : reteNetwork.getBetaNodes()) {
+
+
+                    for(Node parent :betanode.getChilds() ) {
+
+                        if (factBase.contains(parent.getName()))
+                        {
+                            flag=true;
+
+                        }
+                    }
+
+                    if (flag)
+                    {
+                        for (Node p :betanode.getChilds()
+                             ) {
+                            if (!betanode.getMemory().contains(p.getName()))
+                            {
+                                possibleFacts.add(p.getName());
+                            }
+                        }
+                    }
+
+                    flag=false;
+
+                }
+
+                String pfacts="[";
+
+                for(String s: possibleFacts ) {
+                    pfacts+=s+",";
+                }
+                pfacts+="]";
+
+                    String choice=JOptionPane.showInputDialog("El sujeto tiene alguno de estos efectos : n/ "+pfacts);
+
+                possibleFacts.clear();
+                for(String ss : choice.split(",")  ) {
+                    factBase.add(ss);
+                    possibleFacts.add(ss);
+                }
+
+
+
+                }
+
             for(String s : kBase.getTargetFact()) {
                 if(factBase.contains(s)) {
                     goalInFactBase = true;
                     break;
                 }
             }
+
+            if (conflictSet.isEmpty())
+            {
+                conflictSet.add(kBase.getRandomRule());
+            }
+
         }
         goalInFactBase = false;
         for(String s : kBase.getTargetFact()) {
